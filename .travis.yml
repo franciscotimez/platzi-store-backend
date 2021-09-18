@@ -1,0 +1,26 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack: franciscoespacio:CM552wNOMgXUJTGC1IMDKRex
+  email:
+    recipients:
+      - franciscotimez@gmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provider: heroku
+  skip-clueanup: true
+  keep-history: true
+  api_key: 3bbf4607-fbed-4c66-88d9-d13518331463
+  app: platzi-store-backend-fran
+  on:
+    repo: franciscotimez/platzi-store-backend
